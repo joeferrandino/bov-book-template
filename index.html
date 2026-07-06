@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>BOV — 75 South Highland Avenue, Ossining NY</title>
+<title>Broker Opinion of Value</title>
 <style>
   :root{
     --orange:#F8971D; --blue:#3F4753; --beige:#B1A8A0; --graphite:#281B12;
@@ -50,7 +50,7 @@
   .kicker{ display:inline-flex; align-items:center; gap:9px; font-size:8.2pt; font-weight:700; letter-spacing:.28em; text-transform:uppercase; color:var(--terracotta); }
   .kicker::before{ content:""; width:20px; height:2px; background:var(--orange); flex:none; }
   .title{ font-size:21pt; font-weight:700; color:var(--blue); line-height:1.0; letter-spacing:-.012em; margin-top:6px; }
-  .rule{ width:46px; height:3px; background:var(--orange); border-radius:2px; margin-top:9px; }
+  .rule{ width:46px; height:3px; background:var(--orange); border-radius:2px; margin-top:9px; flex:none; }
   /* white two-column section with a full-height light facts panel */
   .secgrid{ display:grid; gap:28px; align-items:stretch; margin-top:18px; }
   .pcol{ display:flex; flex-direction:column; justify-content:flex-start; }
@@ -127,9 +127,9 @@
   /* value cards (valuation page) */
   .vcards{ display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:6px 12px; }
   .vcard{ background:#fff; border:1px solid var(--line); border-radius:6px; overflow:hidden; }
-  .vcard h4{ background:var(--blue); color:#fff; font-size:8.5pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; }
-  .vcard .lns{ padding:4px 9px 4px 9px; }
-  .vcard .ln{ display:flex; justify-content:space-between; font-size:9.3pt; padding:2px 0; color:#7a726b; border-bottom:1px solid var(--line); }
+  .vcard h4{ background:var(--blue); color:#fff; font-size:8.5pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 9px; line-height:1.2; }
+  .vcard .lns{ padding:3px 9px 3px 9px; }
+  .vcard .ln{ display:flex; justify-content:space-between; font-size:9.3pt; line-height:1.35; padding:2px 0; color:#7a726b; border-bottom:1px solid var(--line); }
   .vcard .ln:last-child{ border-bottom:none; }
   .vcard .ln .vv{ font-weight:700; color:var(--blue); }
   .vcard .ln .vv.or{ color:var(--terracotta); font-size:10pt; }
@@ -167,12 +167,15 @@
   .upside .ln .vv.or{ color:var(--terracotta); }
 
   /* bottom value bar — the value reveal, isolated at page bottom */
-  .valbar{ background:var(--blue); border-radius:8px; display:flex; align-items:stretch; margin-top:auto; margin-bottom:0.1in; overflow:hidden; }
-  .valbar .ev{ flex:none; display:flex; flex-direction:column; justify-content:flex-start; padding:15px 42px 15px 34px; }
+  .valbar{ background:var(--blue); border-radius:8px; display:flex; align-items:stretch; margin-top:auto; margin-bottom:0.12in; overflow:hidden; min-height:1in; }
+  .caprate{ margin-bottom:8px; }
+  .caprate tbody td{ padding-top:3px; padding-bottom:3px; line-height:1.35; }
+  .caprate thead th{ padding-top:4px; padding-bottom:4px; }
+  .valbar .ev{ flex:1 1 0; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:20px 14px; }
   .valbar .ev .l{ font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:#fff; margin-bottom:9px; }
-  .valbar .ev .n{ font-size:20pt; font-weight:700; color:#fff; line-height:.9; letter-spacing:-.01em; align-self:flex-start; }
-  .valbar .vmetrics{ flex:1; display:flex; }
-  .valbar .mi{ flex:1; display:flex; flex-direction:column; justify-content:flex-start; text-align:center; padding:15px 14px; border-left:1px solid rgba(255,255,255,.16); }
+  .valbar .ev .n{ font-size:20pt; font-weight:700; color:#fff; line-height:.9; letter-spacing:-.01em; }
+  .valbar .vmetrics{ flex:3 1 0; display:flex; }
+  .valbar .mi{ flex:1 1 0; display:flex; flex-direction:column; justify-content:center; text-align:center; padding:20px 14px; border-left:1px solid rgba(255,255,255,.16); }
   .valbar .mi .l{ font-size:8pt; letter-spacing:.14em; text-transform:uppercase; color:#fff; margin-bottom:9px; }
   .valbar .mi .n{ font-size:15pt; font-weight:700; color:#fff; }
 
@@ -189,22 +192,22 @@
 
   /* cover */
   .cover-top{ background:var(--blue); height:1.18in; display:flex; align-items:center; padding:0 0.5in; }
-  .cover-body{ display:flex; padding:0.5in 0.5in 0 0.5in; gap:0.5in; height:6.05in; align-items:stretch; }
-  .cb-left{ width:43%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.05in; }
-  .cb-right{ width:57%; }
+  .cover-body{ display:flex; padding:0.75in 0.5in 0 0.5in; gap:0.5in; height:6.05in; align-items:stretch; }
+  .cb-left{ width:40%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.05in; padding-bottom:0.88in; }
+  .cb-right{ width:60%; display:flex; align-items:flex-start; padding-top:0.62in; }
   .bovbox{ display:inline-block; background:var(--terracotta); color:#fff; font-size:9.5pt; font-weight:700; letter-spacing:.16em; text-transform:uppercase; padding:6px 14px; }
   .ptype{ font-size:9.5pt; font-weight:700; letter-spacing:.18em; text-transform:uppercase; color:var(--beige); margin-top:26px; }
   .bigaddr{ font-size:27pt; font-weight:700; color:var(--blue); line-height:1.06; margin-top:16px; }
   .subaddr{ font-size:12pt; color:#7d756d; margin-top:16px; }
   .ocrule{ width:60px; height:4px; background:var(--orange); border-radius:2px; margin-top:24px; }
-  .cov-team{ margin-top:44px; }
+  .cov-team{ margin-top:24px; }
   .cov-team .ct-label{ font-size:8.5pt; font-weight:700; letter-spacing:.2em; text-transform:uppercase; color:#9a9088; margin-bottom:10px; }
   .cov-team .ct-row{ margin-bottom:7px; display:flex; align-items:baseline; gap:10px; }
   .cov-team .ct-nm{ font-size:12pt; font-weight:700; color:var(--blue); }
   .cov-team .ct-tt{ font-size:8pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta); }
   .cov-team .ct-date{ font-size:9pt; font-weight:400; letter-spacing:.04em; color:#9a9088; margin-top:13px; }
-  .photo{ height:100%; min-height:5in; border-radius:8px; overflow:hidden; background:var(--tint2); border:1px solid var(--line); }
-  .photo-ph{ width:100%; height:100%; min-height:5in; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:#a79e95; font-size:11pt; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
+  .photo{ width:100%; aspect-ratio:3/2; border-radius:8px; overflow:hidden; background:var(--tint2); border:1px solid var(--line); }
+  .photo-ph{ width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; color:#a79e95; font-size:11pt; font-weight:700; letter-spacing:.2em; text-transform:uppercase; }
   .photo-ph span{ font-size:7pt; font-weight:600; letter-spacing:.06em; text-transform:none; color:#b8afa6; }
   /* logo */
   .logoc{ width:1.95in; height:0.66in; background:var(--np-logo) no-repeat left center; background-size:contain; }
@@ -237,7 +240,7 @@
         <div class="ct-label">Prepared by</div>
         <div class="ct-row"><span class="ct-nm">Joe Ferrandino</span><span class="ct-tt">Associate</span></div>
         <div class="ct-row"><span class="ct-nm">Jeff Wright</span><span class="ct-tt">Vice President, Investments</span></div>
-        <div class="ct-date">NortheastPCG, Inc. · June 2026</div>
+        <div class="ct-date">June 2026</div>
       </div>
     </div>
     <div class="cb-right">
@@ -247,7 +250,7 @@
   <div class="cov-disc">
     This Broker Opinion of Value (“BOV”) is provided solely for informational purposes and does not constitute an appraisal, guarantee of value, or commitment to lend. While the information contained herein is believed to be reliable, its accuracy and completeness are not guaranteed. Recipients are encouraged to conduct their own due diligence.
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">1</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">1</span></div></div>
 </div>
 
 <!-- ===== PAGE 2 — TOC ===== -->
@@ -268,7 +271,7 @@
       <tr><td class="n">09</td><td class="t">Advisor Bio</td><td class="pg">Page 11</td></tr>
     </table>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">2</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">2</span></div></div>
 </div>
 
 <!-- ===== PAGE 3 — PROPERTY DESCRIPTION ===== -->
@@ -309,7 +312,7 @@
       </div>
     </div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">3</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">3</span></div></div>
 </div>
 
 <!-- ===== PAGE 4 — LOCATION SUMMARY ===== -->
@@ -352,7 +355,7 @@
       </div>
     </div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">4</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">4</span></div></div>
 </div>
 
 <!-- ===== PAGE 5 — SALES COMPARABLES ===== -->
@@ -363,52 +366,56 @@
     <div class="rule"></div>
 
     <div class="compcard" style="margin-top:18px">
-      <div class="ch"><div class="nm"><span class="badge">1</span>121 US-9, Ossining, NY 10562</div><div class="tag">Office · Sold Jan 2026</div></div>
+      <div class="ch"><div class="nm"><span class="badge">1</span>121 US-9, Ossining, NY 10562</div><div class="tag">Office</div></div>
       <div class="cb">
         <div class="cell"><div class="cl">Sale Price</div><div class="cv">$735,000</div></div>
         <div class="cell"><div class="cl">Price / SF</div><div class="cv">$194.09</div></div>
         <div class="cell"><div class="cl">RBA</div><div class="cv">3,787 SF</div></div>
         <div class="cell"><div class="cl">Cap Rate</div><div class="cv">N/A</div></div>
+        <div class="cell"><div class="cl">Sale Date</div><div class="cv">Jan 2026</div></div>
         <div class="cell"><div class="cl">Notes</div><div class="cv">Most comparable · Rte 9</div></div>
       </div>
     </div>
 
     <div class="compcard">
-      <div class="ch"><div class="nm"><span class="badge">2</span>95 Croton Ave, Ossining, NY 10562</div><div class="tag">Office · Sold Oct 2024</div></div>
+      <div class="ch"><div class="nm"><span class="badge">2</span>95 Croton Ave, Ossining, NY 10562</div><div class="tag">Office</div></div>
       <div class="cb">
         <div class="cell"><div class="cl">Sale Price</div><div class="cv">$1,200,000</div></div>
         <div class="cell"><div class="cl">Price / SF</div><div class="cv">$120.00</div></div>
         <div class="cell"><div class="cl">RBA</div><div class="cv">10,000 SF</div></div>
         <div class="cell"><div class="cl">Cap Rate</div><div class="cv">N/A</div></div>
+        <div class="cell"><div class="cl">Sale Date</div><div class="cv">Oct 2024</div></div>
         <div class="cell"><div class="cl">Notes</div><div class="cv">Larger office · lower $/SF</div></div>
       </div>
     </div>
 
     <div class="compcard">
-      <div class="ch"><div class="nm"><span class="badge">3</span>1250 Pleasantville Rd, Briarcliff Manor, NY 10510</div><div class="tag">Retail · Sold Apr 2025</div></div>
+      <div class="ch"><div class="nm"><span class="badge">3</span>1250 Pleasantville Rd, Briarcliff Manor, NY 10510</div><div class="tag">Retail</div></div>
       <div class="cb">
         <div class="cell"><div class="cl">Sale Price</div><div class="cv">$1,790,000</div></div>
         <div class="cell"><div class="cl">Price / SF</div><div class="cv">$256.01</div></div>
         <div class="cell"><div class="cl">GLA</div><div class="cv">6,992 SF</div></div>
         <div class="cell"><div class="cl">Cap Rate</div><div class="cv">7.90%</div></div>
+        <div class="cell"><div class="cl">Sale Date</div><div class="cv">Apr 2025</div></div>
         <div class="cell"><div class="cl">Notes</div><div class="cv">Confirmed cap-rate comp</div></div>
       </div>
     </div>
 
     <div class="compcard">
-      <div class="ch"><div class="nm"><span class="badge">4</span>80 Beekman Ave, Sleepy Hollow, NY 10591</div><div class="tag">Retail · Sold Dec 2025</div></div>
+      <div class="ch"><div class="nm"><span class="badge">4</span>80 Beekman Ave, Sleepy Hollow, NY 10591</div><div class="tag">Retail</div></div>
       <div class="cb">
         <div class="cell"><div class="cl">Sale Price</div><div class="cv">$1,000,000</div></div>
         <div class="cell"><div class="cl">Price / SF</div><div class="cv">$100.00</div></div>
         <div class="cell"><div class="cl">GLA</div><div class="cv">10,000 SF</div></div>
         <div class="cell"><div class="cl">Cap Rate</div><div class="cv">N/A</div></div>
+        <div class="cell"><div class="cl">Sale Date</div><div class="cv">Dec 2025</div></div>
         <div class="cell"><div class="cl">Notes</div><div class="cv">Larger retail · floor</div></div>
       </div>
     </div>
 
     <p class="small" style="margin-top:4px"><b style="color:var(--terracotta)">Sale Comp Commentary:</b> The following confirmed Westchester transactions support the price-per-square-foot and cap-rate assumptions applied in the valuation. The most directly comparable sale — 121 US-9, a 3,787 SF, 100%-leased office on the same Route 9 corridor that closed January 2026 — traded at $194/SF. The subject is priced at $206/SF, a modest premium reflecting its full occupancy, contractual 3% escalations, and below-market rent upside. Confirmed sales span $100–$256/SF; the closest analog, 121 US-9 (a 3,787 SF Route 9 office), closed Jan 2026 at $194/SF. The subject is priced at $206/SF and an 8.02% cap on trailing-twelve in-place income — directly in line with the confirmed 7.90% cap at 1250 Pleasantville and the ~8.00% the market pays for stable, fully-leased product of this type. Full occupancy, quality tenants, and 3% escalations support the pricing.</p>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">5</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">5</span></div></div>
 </div>
 
 <!-- ===== PAGE 6 — LEASE COMPARABLES ===== -->
@@ -418,25 +425,25 @@
     <div class="title">Lease Comparables</div>
     <div class="rule"></div>
 
-    <div class="compcard lease" style="margin-top:18px"><div class="ch"><div class="nm"><span class="badge">1</span>172 N Highland Ave, Ossining, NY</div><div class="tag">Office · Signed Sep 2024</div></div>
-      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">1,525 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$23.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Full Service</div></div><div class="cell"><div class="cl">Term</div><div class="cv">5 Years</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">King Place Spa</div></div></div>
+    <div class="compcard lease" style="margin-top:18px"><div class="ch"><div class="nm"><span class="badge">1</span>172 N Highland Ave, Ossining, NY</div><div class="tag">Office</div></div>
+      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">1,525 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$23.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Full Service</div></div><div class="cell"><div class="cl">Term</div><div class="cv">5 Years</div></div><div class="cell"><div class="cl">Signed</div><div class="cv">Sep 2024</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">King Place Spa</div></div></div>
     </div>
-    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">2</span>510 N State Rd, Briarcliff Manor, NY</div><div class="tag">Office · Signed Sep 2025</div></div>
-      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">838 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$30.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">New Lease</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">Bright Light Energy</div></div></div>
+    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">2</span>510 N State Rd, Briarcliff Manor, NY</div><div class="tag">Office</div></div>
+      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">838 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$30.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">New Lease</div></div><div class="cell"><div class="cl">Signed</div><div class="cv">Sep 2025</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">Bright Light Energy</div></div></div>
     </div>
-    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">3</span>430-468 N State Rd, Briarcliff Manor, NY</div><div class="tag">Office · Signed Sep 2024</div></div>
-      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">955 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$27.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">Renewal</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">JB &amp; B Construction</div></div></div>
+    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">3</span>430-468 N State Rd, Briarcliff Manor, NY</div><div class="tag">Office</div></div>
+      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">955 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$27.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">Renewal</div></div><div class="cell"><div class="cl">Signed</div><div class="cv">Sep 2024</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">JB &amp; B Construction</div></div></div>
     </div>
-    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">4</span>55 S Broadway, Tarrytown, NY</div><div class="tag">Office · Signed Apr 2026</div></div>
-      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">520 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$27.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Full Service</div></div><div class="cell"><div class="cl">Term</div><div class="cv">2 Years</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">J Baer Counseling</div></div></div>
+    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">4</span>55 S Broadway, Tarrytown, NY</div><div class="tag">Office</div></div>
+      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">520 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$27.00 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Full Service</div></div><div class="cell"><div class="cl">Term</div><div class="cv">2 Years</div></div><div class="cell"><div class="cl">Signed</div><div class="cv">Apr 2026</div></div><div class="cell"><div class="cl">Tenant</div><div class="cv">J Baer Counseling</div></div></div>
     </div>
-    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">5</span>175 Main St, Ossining, NY</div><div class="tag">Office · Signed Jul 2025</div></div>
-      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">1,600 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$15.38 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">New Lease</div></div><div class="cell"><div class="cl">Notes</div><div class="cv">Below-market floor</div></div></div>
+    <div class="compcard lease"><div class="ch"><div class="nm"><span class="badge">5</span>175 Main St, Ossining, NY</div><div class="tag">Office</div></div>
+      <div class="cb"><div class="cell"><div class="cl">Size</div><div class="cv">1,600 SF</div></div><div class="cell"><div class="cl">Rent</div><div class="cv">$15.38 / SF</div></div><div class="cell"><div class="cl">Type</div><div class="cv">Modified Gross</div></div><div class="cell"><div class="cl">Term</div><div class="cv">New Lease</div></div><div class="cell"><div class="cl">Signed</div><div class="cv">Jul 2025</div></div><div class="cell"><div class="cl">Notes</div><div class="cv">Below-market floor</div></div></div>
     </div>
 
     <p class="small" style="margin-top:4px"><b style="color:var(--terracotta)">Lease Comp Commentary:</b> The following confirmed office leases in Ossining and the immediate Route 9 / Briarcliff submarket support the $27.00/SF market-rent assumption used in the pro forma. Recent small-suite leasing clusters near $27/SF, against the subject's in-place suites blended at $26.42/SF. Recent small-office leases in the trade area run $23.00–$30.00/SF and cluster at $27.00/SF — including a Briarcliff renewal and a Tarrytown medical suite at exactly $27.00, and 510 N State Rd at $30.00. On the subject's own corridor, 172 N Highland Ave leased at $23.00/SF FS for a five-year medical/spa term. The $15.38/SF lease at 175 Main St is a below-market floor. A $27.00/SF market rent for the subject is therefore well supported, even conservative; Suite 2-1 at $20.70/SF is the clearest re-leasing upside at its 2027 expiration.</p>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">6</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">6</span></div></div>
 </div>
 
 <!-- ===== PAGE 7 — RENT ROLL ===== -->
@@ -459,7 +466,7 @@
       </tbody>
     </table>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">7</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">7</span></div></div>
 </div>
 
 <!-- ===== PAGE 8 — INCOME & EXPENSE ANALYSIS ===== -->
@@ -541,7 +548,7 @@
       </div>
     </div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">8</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">8</span></div></div>
 </div>
 
 <!-- ===== PAGE 9 — VALUATION ANALYSIS ===== -->
@@ -550,7 +557,7 @@
   <div class="body" style="padding-top:0.16in; padding-bottom:0.5in">
     <div class="title">Valuation Analysis</div>
     <div class="rule"></div>
-    <div class="vcards" style="margin-top:18px">
+    <div class="vcards" style="margin-top:22px; grid-template-rows:auto auto 1fr">
       <div class="vcard" style="grid-column:1; grid-row:1; align-self:start"><h4>Direct Cap: In-Place</h4><div class="lns">
         <div class="ln">In-Place NOI<span class="vv">$58,174</span></div>
         <div class="ln">Market Cap Rate<span class="vv">7.14%</span></div>
@@ -558,41 +565,52 @@
         <div class="ln">Price Per SF<span class="vv">$206 / SF</span></div></div></div>
       <div class="vcard" style="grid-column:1; grid-row:2; align-self:start"><h4>Sales Comparison Approach</h4><div class="lns">
         <div class="ln">Comp Range (Price/SF)<span class="vv">$100 – $256 / SF</span></div>
-        <div class="ln">Adjusted Comp Range<span class="vv">$194 – $220 / SF</span></div>
-        <div class="ln">Subject Price/SF<span class="vv">$206 / SF</span></div>
-        <div class="ln">Value Range<span class="vv or">$765K – $870K</span></div></div></div>
-      <div class="vcard" style="grid-column:2; grid-row:1 / span 2"><h4>Cash-on-Cash Return</h4><div class="lns">
+        <div class="ln">Comp Average<span class="vv">$207 / SF</span></div>
+        <div class="ln">Comp Median<span class="vv">$206 / SF</span></div>
+        <div class="ln">Value Range (Subject SF)<span class="vv or">$765K – $870K</span></div></div></div>
+      <div class="vcard" style="grid-column:2; grid-row:1 / span 3; align-self:start"><h4>Cash-on-Cash Return</h4><div class="lns">
+        <div class="ln" style="border-bottom:none; padding-top:4px"><span style="font-size:8pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta)">1. Financing</span></div>
         <div class="ln">Purchase Price<span class="vv">$815,000</span></div>
-        <div class="ln">Loan (25-Yr Amort.)<span class="vv">$561,330</span></div>
-        <div class="ln">Loan-to-Value (LTV)<span class="vv or">69%</span></div>
-        <div class="ln">Down Payment (Equity)<span class="vv">$253,670</span></div>
+        <div class="ln">LTV<span class="vv">69%</span></div>
+        <div class="ln">Loan Amount<span class="vv">$561,330</span></div>
         <div class="ln">Interest Rate<span class="vv">6.75%</span></div>
+        <div class="ln">Amortization<span class="vv">25 years</span></div>
         <div class="ln">Annual Debt Service<span class="vv">$46,540</span></div>
-        <div class="ln">Net Operating Income (In-Place)<span class="vv">$58,174</span></div>
-        <div class="ln">DSCR (In-Place)<span class="vv or">1.25x</span></div>
-        <div class="ln">Cash-on-Cash (In-Place / Pro Forma)<span class="vv or">4.8% / 9.4%</span></div></div></div>
-    </div>
-    <div class="sub2 rl" style="margin-top:14px">Cap Rate Sensitivity: In-Place NOI</div>
-    <table class="dt nostripe caprate" style="margin-top:6px; table-layout:fixed">
-      <thead><tr><th style="width:20%">Cap Rate</th><th class="r" style="width:30%">Value at In-Place ($58,174)</th><th style="width:50%">Notes</th></tr></thead>
+        <div class="ln">DSCR<span class="vv">1.25x</span></div>
+        <div class="ln" style="border-bottom:none">&nbsp;</div>
+        <div class="ln" style="border-bottom:none; padding-top:6px"><span style="font-size:8pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta)">2. Equity Investment</span></div>
+        <div class="ln">Down Payment<span class="vv">$253,670</span></div>
+        <div class="ln">Capital Budget<span class="vv">$0</span></div>
+        <div class="ln">Total Cash In<span class="vv">$253,670</span></div>
+        <div class="ln" style="border-bottom:none">&nbsp;</div>
+        <div class="ln" style="border-bottom:none; padding-top:6px"><span style="font-size:8pt; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--terracotta)">3. Returns</span></div>
+        <div class="ln">In-Place NOI<span class="vv">$58,174</span></div>
+        <div class="ln">Less: Annual Debt Service<span class="vv">$46,540</span></div>
+        <div class="ln">Cash Flow after Debt Service<span class="vv">$11,634</span></div>
+        <div class="ln">Cash-on-Cash Return<span class="vv or">4.6%</span></div></div></div>
+      <div style="grid-column:1; grid-row:3; align-self:start">
+    <div class="sub2 rl" style="margin-top:2px; display:block; width:100%">Cap Rate Sensitivity: In-Place NOI</div>
+    <table class="dt nostripe caprate" style="margin-top:4px; table-layout:fixed; width:100%">
+      <thead><tr><th style="width:24%">Cap Rate</th><th class="r" style="width:26%">Value</th><th style="width:50%">Notes</th></tr></thead>
       <tbody>
         <tr><td>5.50%</td><td class="r">$1,057,709</td><td></td></tr>
         <tr><td>6.00%</td><td class="r">$969,567</td><td></td></tr>
         <tr><td>6.50%</td><td class="r">$894,985</td><td></td></tr>
-        <tr><td>7.00%</td><td class="r">$831,057</td><td></td></tr>
-        <tr style="background:rgba(248,151,29,.55)"><td style="font-weight:700">7.14%</td><td class="r" style="font-weight:700">$815,000</td><td style="font-weight:700">◄ Value Estimate</td></tr>
+        <tr style="background:rgba(248,151,29,.55)"><td style="font-weight:700">7.00%</td><td class="r" style="font-weight:700">$831,057</td><td style="font-weight:700">◄ Value using In-Place NOI ($58,174)</td></tr>
         <tr><td>7.50%</td><td class="r">$775,653</td><td></td></tr>
         <tr><td>8.00%</td><td class="r">$727,175</td><td></td></tr>
         <tr><td>8.50%</td><td class="r">$684,400</td><td></td></tr>
         <tr><td>9.00%</td><td class="r">$646,378</td><td></td></tr>
       </tbody>
     </table>
+      </div>
+    </div>
     <div class="valbar"><div class="ev"><div class="l">Value Estimate</div><div class="n">$815,000</div></div>
       <div class="vmetrics"><div class="mi"><div class="l">Price / SF</div><div class="n">$206</div></div>
         <div class="mi"><div class="l">Cap Rate (In-Place)</div><div class="n">7.14%</div></div>
         <div class="mi"><div class="l">In-Place NOI</div><div class="n">$58,174</div></div></div></div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">9</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">9</span></div></div>
 </div>
 
 <!-- ===== PAGE 10 — ADVISOR BIO ===== -->
@@ -603,15 +621,15 @@
     <div class="rule"></div>
     <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px; margin-top:14px">
       <div class="stmt pfm"><h4>List Price</h4><div class="lines">
-        <div class="ln b" style="font-size:11pt">$865,000<span class="vv"></span></div>
+        <div class="ln b" style="font-size:16pt; border-top:none; padding-top:5px; padding-bottom:3px">$865,000<span class="vv"></span></div>
         <div class="ln">Price / SF<span class="vv">$219</span></div>
-        <div class="ln">Cap on In-Place<span class="vv">6.7%</span></div>
-        <div class="ln">Cap on Pro-Forma<span class="vv">8.0%</span></div></div></div>
+        <div class="ln">Cap Rate on In-Place<span class="vv">6.7%</span></div>
+        <div class="ln">Cap Rate on Pro-Forma<span class="vv">8.0%</span></div></div></div>
       <div class="stmt cur"><h4>Expected Sale</h4><div class="lines">
-        <div class="ln b" style="font-size:11pt">$815,000<span class="vv"></span></div>
+        <div class="ln b" style="font-size:16pt; border-top:none; padding-top:5px; padding-bottom:3px">$815,000<span class="vv"></span></div>
         <div class="ln">Price / SF<span class="vv">$206</span></div>
-        <div class="ln">Cap on In-Place<span class="vv">7.1%</span></div>
-        <div class="ln">Cap on Pro-Forma<span class="vv">8.5%</span></div></div></div>
+        <div class="ln">Cap Rate on In-Place<span class="vv">7.1%</span></div>
+        <div class="ln">Cap Rate on Pro-Forma<span class="vv">8.5%</span></div></div></div>
     </div>
     <div class="two" style="margin-top:16px">
       <div>
@@ -626,7 +644,7 @@
       </div>
     </div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">10</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">10</span></div></div>
 </div>
 
 <div class="page">
@@ -659,7 +677,7 @@
       </div>
     </div>
   </div>
-  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL — NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | northeastpcg.com</span><span class="pg">11</span></div></div>
+  <div class="ft"><div class="bar"></div><div class="row"><span class="c">CONFIDENTIAL | NortheastPCG, Inc. | 2 Trap Falls Road, Suite 312, Shelton, CT 06484 | www.northeastpcg.com</span><span class="pg">11</span></div></div>
 </div>
 
 <!-- ===== PAGE 12 — BACK COVER ===== -->
